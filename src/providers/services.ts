@@ -39,9 +39,15 @@ export class Services {
     });
 
   }
+
   onLogout(var_login){
     this.foodConsumer = var_login;
      this.foodProducer = var_login;
       this.isLogin =var_login;
   }
+
+  getFood(){
+		return this.http.get("http://foodbuddy.getriuh.com/api/get_food")
+		.map(res => res.json())
+	}
 }

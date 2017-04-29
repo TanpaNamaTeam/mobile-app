@@ -1,12 +1,11 @@
 <ion-content padding>
-    <button ion-button (click)="scanQR()" full><ion-icon name="qr-scanner" icon-left></ion-icon>
-            QR Scanner
-    </button>
-    <button ion-button (click)="takePicture()" full><ion-icon name="camera" icon-left></ion-icon>
-            Camera
-    </button>
-    <button ion-button (click)="registerFood()" full><ion-icon name="camera" icon-left></ion-icon>
-        Register Food
-    </button>
+    <ion-list>
+        <ion-list-header>
+            History
+        </ion-list-header>
+        <button ion-item *ngFor="let food of foods" (click)="foodSelected(food)">
+    {{ food.name }}
+  </button>
+    </ion-list>
 
 </ion-content>

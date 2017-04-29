@@ -8,17 +8,28 @@
         FoodBuddy
     </ion-title>
     <ion-buttons right *ngIf="service.isLogin=='true'">
+        <button ion-button (click)="register_food()">
+                <ion-icon name="document"></ion-icon>
+            </button>
+    </ion-buttons>
+    <ion-buttons right *ngIf="service.isLogin=='true'">
+        <button ion-button>
+                <ion-icon name="print"></ion-icon>
+            </button>
+    </ion-buttons>
+    <ion-buttons right *ngIf="service.isLogin=='true'">
         <button ion-button (click)="scanQR()">
                 <ion-icon name="qr-scanner"></ion-icon>
             </button>
     </ion-buttons>
+
 </ion-navbar>
-<super-tabs selectedTabIndex="2" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodProducer=='true'">
+<super-tabs selectedTabIndex="0" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodProducer=='true'">
     <super-tab [root]="dashboard" icon="search"></super-tab>
     <super-tab [root]="stale" icon="home"></super-tab>
     <super-tab [root]="myfood" icon="heart"></super-tab>
 </super-tabs>
-<super-tabs selectedTabIndex="2" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodConsumer=='true'">
+<super-tabs selectedTabIndex="0" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodConsumer=='true'">
     <super-tab [root]="dashboard" icon="search"></super-tab>
     <super-tab [root]="stale" icon="home"></super-tab>
 </super-tabs>

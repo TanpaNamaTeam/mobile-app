@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { Services } from "../../providers/services";
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { NavController } from "ionic-angular";
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -11,7 +12,7 @@ export class TabsPage implements OnInit {
   myfood = 'myfood';
   logins = 'Login';
   register ='Register';
-  constructor(public service:Services,private barcodeScanner: BarcodeScanner) {
+  constructor(public service:Services,private barcodeScanner: BarcodeScanner,public navCtrl: NavController) {
 
   }
   
@@ -31,5 +32,9 @@ export class TabsPage implements OnInit {
     }, (err) => {
       console.log(err);
     });
+  }
+
+  register_food(){
+    this.navCtrl.push('RegisterFood');
   }
 }

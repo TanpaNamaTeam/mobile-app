@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from "@ionic-native/camera";
 import { Geolocation } from '@ionic-native/geolocation';
+import { FormGroup, FormControl } from "@angular/forms";
 declare var google;
 /**
  * Generated class for the RegisterFood page.
@@ -15,16 +16,22 @@ declare var google;
   templateUrl: 'register-food.html',
 })
 export class RegisterFood {
+  myForm : FormGroup;
   latitude: number = 0;
   longtitude: number = 0;
     LatLng:number;
     DestinationType:any;
    public base64Image: string;
+  
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private Camera: Camera,
     public geolocation: Geolocation) {
+       this.myForm = new FormGroup({
+    firstName: new FormControl('Josh'),
+    lastName: new FormControl('Morony')
+});
   }
 
   ionViewDidLoad() {
@@ -59,5 +66,7 @@ export class RegisterFood {
     //   console.log(err);
     // });
   }
-
+  goBack(){
+    this.navCtrl.pop();
+  }
 }

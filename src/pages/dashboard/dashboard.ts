@@ -2,25 +2,30 @@ import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
+import { Services } from "../../providers/services";
 @IonicPage()
 @Component({ 
   selector: 'page-home',
   templateUrl: 'dashboard.html',
 })
 export class dashboard implements OnInit{
-  
+  foods:any;
   public base64Image: string;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     private Camera: Camera,
-    private barcodeScanner: BarcodeScanner
+    private barcodeScanner: BarcodeScanner,
+    public service:Services
     ) {
   }
 
   ngOnInit() {
+   this.service.getFood().subscribe((foods)=>{
+        this.foods = foods;
+        console.log(this.foods);
+   });
     
-  
   }
 
   ionViewDidLoad() {
@@ -53,6 +58,12 @@ export class dashboard implements OnInit{
         this.base64Image = "data:image/jpeg;base64," + imageData;
     }, (err) => {
         console.log(err);
+    });
+  }
+
+  foodSelected(food){
+    this.navCtrl.push('fooddetail',{
+      food:food
     });
   }
 }

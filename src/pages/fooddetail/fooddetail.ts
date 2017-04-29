@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
@@ -13,13 +13,19 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
   selector: 'page-favourite',
   templateUrl: 'fooddetail.html',
 })
-export class fooddetail {
-
+export class fooddetail implements OnInit {
+  food:any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  ngOnInit(){
+    this.food = this.navParams.get('food');
+    console.log(this.food);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Favourite');
   }
-
+  goBack(){
+    this.navCtrl.pop();
+  }
 }
