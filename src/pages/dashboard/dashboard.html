@@ -4,12 +4,9 @@
     </button>
     <button ion-button (click)="takePicture()" full><ion-icon name="camera" icon-left></ion-icon>
             Camera
-        </button>
-    <ion-card>
-        <ion-label>Latest Picture:</ion-label>
-        <ion-card-content>
-            <img [src]="base64Image" *ngIf="base64Image" />
-        </ion-card-content>
-    </ion-card>
+    </button>
+    <button ion-button (click)="registerFood()" full><ion-icon name="camera" icon-left></ion-icon>
+        Register Food
+    </button>
 
 </ion-content>

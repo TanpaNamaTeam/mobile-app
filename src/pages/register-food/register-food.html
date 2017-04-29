@@ -1,0 +1,44 @@
+<ion-content padding>
+    <form>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" name="Username"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Description</ion-label>
+            <ion-input type="text" name="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Ingredients</ion-label>
+            <ion-input type="text" name="Password"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Entry Date</ion-label>
+            <ion-input type="text" name="Confirmation"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Latitude {{latitude}}</ion-label>
+            <ion-input type="number" name="latitude" [(ngModel)]="latitude"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Longtitude</ion-label>
+            <ion-input type="number" name="longtitude" [ngModel]="longtitude"></ion-input>
+        </ion-item>
+        <button ion-button (click)="getLocation()" full> 
+            Get Current Location
+            </button>
+        <ion-item>
+            <ion-label>Image</ion-label>
+        </ion-item>
+        <button ion-button (click)="takePicture()" full><ion-icon name="camera" icon-left></ion-icon>
+            Camera
+            </button>
+        <ion-card>
+            <ion-label>Latest Picture:</ion-label>
+            <ion-card-content>
+                <img [src]="base64Image" *ngIf="base64Image" />
+            </ion-card-content>
+        </ion-card>
+        <button ion-button type="submit" block>Register</button>
+    </form>
+</ion-content>

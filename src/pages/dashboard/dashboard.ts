@@ -45,7 +45,9 @@ export class dashboard implements OnInit{
       console.log(err);
     });
   }
-
+  registerFood(){
+    this.navCtrl.push('RegisterFood');
+  }
   takePicture(){
     this.Camera.getPicture({
         destinationType: this.Camera.DestinationType.DATA_URL,
