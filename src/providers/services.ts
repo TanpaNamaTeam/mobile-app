@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Services {
   isLogin = 'false';
+  foodProducer = 'false';
+  foodConsumer = 'false';
   items: any;
   constructor(public http: Http) {
     console.log('Hello Services Provider');
@@ -19,8 +21,13 @@ export class Services {
   }
 
   islogin(var_login) {
-    
-    this.isLogin = var_login;
+    if(var_login == 'foodProducer'){
+      this.foodProducer = 'true';
+      this.isLogin ='true';
+    }else{
+      this.foodConsumer = 'true';
+      this.isLogin = 'true';
+    }
     console.log(this.isLogin);
     return var_login;
   }
@@ -31,5 +38,10 @@ export class Services {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
     });
 
+  }
+  onLogout(var_login){
+    this.foodConsumer = var_login;
+     this.foodProducer = var_login;
+      this.isLogin =var_login;
   }
 }

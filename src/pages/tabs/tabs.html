@@ -13,11 +13,14 @@
             </button>
     </ion-buttons>
 </ion-navbar>
-<super-tabs selectedTabIndex="2" toolbarColor="light" toolbarBackground="primary" *ngIf="service.isLogin=='true'">
+<super-tabs selectedTabIndex="2" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodProducer=='true'">
     <super-tab [root]="dashboard" icon="search"></super-tab>
-    <super-tab [root]="fooddetail" icon="person"></super-tab>
     <super-tab [root]="stale" icon="home"></super-tab>
     <super-tab [root]="myfood" icon="heart"></super-tab>
+</super-tabs>
+<super-tabs selectedTabIndex="2" toolbarColor="light" toolbarBackground="primary" *ngIf="service.foodConsumer=='true'">
+    <super-tab [root]="dashboard" icon="search"></super-tab>
+    <super-tab [root]="stale" icon="home"></super-tab>
 </super-tabs>
 <super-tabs selectedTabIndex="0" toolbarColor="light" toolbarBackground="primary" *ngIf="service.isLogin=='false'">
     <super-tab [root]="logins" title="Login"></super-tab>

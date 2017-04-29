@@ -34,7 +34,7 @@ export class MyApp {
   }
   
   onLogout(var_login){
-    this.service.islogin(var_login);
+    this.service.onLogout(var_login);
     this.menuCtrl.close();
   }
 }

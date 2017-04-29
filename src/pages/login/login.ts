@@ -14,6 +14,7 @@ import { Services } from "../../providers/services";
   templateUrl: 'login.html',
 })
 export class Login {
+  password:any;
   test:string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private service:Services) {
   }

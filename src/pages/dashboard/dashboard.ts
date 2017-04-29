@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 @IonicPage()
 @Component({ 
@@ -20,12 +20,7 @@ export class dashboard implements OnInit{
 
   ngOnInit() {
     
-  const options: CameraOptions = {
-    quality: 100,
-    destinationType: this.Camera.DestinationType.DATA_URL,
-    encodingType: this.Camera.EncodingType.JPEG,
-    mediaType: this.Camera.MediaType.PICTURE
-  }
+  
   }
 
   ionViewDidLoad() {
